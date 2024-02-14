@@ -1,12 +1,25 @@
+from calculator.calculation import Calculation
+from calculator.operations import add, subtract, multiply, divide
 
-def add(v1, v2):
-    return v1 + v2
+class Calculator:
 
-def subtract(v1, v2):
-    return v1 - v2
+    @staticmethod
+    def add(a,b):
+        calculation = Calculation(a,b,add)
+        return calculation. get_result()
 
-def multiply(v1, v2):
-    return v1 * v2
+    @staticmethod
+    def subtract(a,b):
+        calculation = Calculation(a,b,subtract)
+        return calculation.get_result()
 
-def divide(v1, v2):
-    return v1 / v2
+    @staticmethod
+    def multiply(a,b):
+        calculation = Calculation(a,b,multiply)
+        return calculation.get_result()
+
+    @staticmethod
+    def divide(a,b):
+        calculation = Calculation(a,b,divide)
+        return calculation.get_result()
+
