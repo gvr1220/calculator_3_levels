@@ -1,11 +1,19 @@
-def add(v1: float, v2: float) -> float:
-    return v1 + v2
+from decimal import Decimal
 
-def subtract(v1: float, v2: float) -> float:
-    return v1 - v2
 
-def multiply(v1: float, v2: float) -> float:
-    return v1 * v2
+def add(a: Decimal, b: Decimal) -> Decimal:
+    return a + b
 
-def divide(v1: float, v2: float) -> float:
-    return v1 / v2
+
+def subtract(a: Decimal, b: Decimal) -> Decimal:
+    return a - b
+
+
+def multiply(a: Decimal, b: Decimal) -> Decimal:
+    return a * b
+
+
+def divide(a: Decimal, b: Decimal) -> Decimal:
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
