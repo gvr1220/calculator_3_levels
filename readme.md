@@ -7,5 +7,5 @@ pip install -r requirements.txt
 Testing
 
 pytest
-pytess --pylint
+pytest --pylint
 pytest --pylint --cov
