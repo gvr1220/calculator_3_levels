@@ -1,25 +1,27 @@
-from calculator.calculation import Calculation
-from calculator.operations import add, subtract, multiply, divide
+from typing import Callable
+from history_tracker import HistoryTracker
 
 class Calculator:
 
     @staticmethod
-    def add(a,b):
-        calculation = Calculation(a,b,add)
-        return calculation. get_result()
+    def _calculate(a: float, b: float, operation: str, result: float) -> float:
+        HistoryTracker.add_history(a, b, operation, result)
+        return result
 
     @staticmethod
-    def subtract(a,b):
-        calculation = Calculation(a,b,subtract)
-        return calculation.get_result()
+    def add(a: float, b: float) -> float:
+        return Calculator._calculate(a, b, "add", a + b)
 
     @staticmethod
-    def multiply(a,b):
-        calculation = Calculation(a,b,multiply)
-        return calculation.get_result()
+    def subtract(a: float, b: float) -> float:
+        return Calculator._calculate(a, b, "subtract", a - b)
 
     @staticmethod
-    def divide(a,b):
-        calculation = Calculation(a,b,divide)
-        return calculation.get_result()
+    def multiply(a: float, b: float) -> float:
+        return Calculator._calculate(a, b, "multiply", a * b)
 
+    @staticmethod
+    def divide(a: float, b: float) -> float:
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        return Calculator._calculate(a, b, "divide", a / b)

@@ -1,22 +1,19 @@
-"""My Calculator Test"""
+import unittest
 from calculator import Calculator
 
+class TestCalculator(unittest.TestCase):
 
-def test_addition():
-    """Test that addition function works """
-    assert Calculator.add(2, 2) == 4
+    def test_add(self):
+        self.assertEqual(Calculator.add(2, 3), 5)
 
+    def test_subtract(self):
+        self.assertEqual(Calculator.subtract(5, 3), 2)
 
-def test_subtraction():
-    """Test that subtraction function works"""
-    assert Calculator.subtract(6, 3) == 3
+    def test_multiply(self):
+        self.assertEqual(Calculator.multiply(2, 3), 6)
 
+    def test_divide(self):
+        self.assertEqual(Calculator.divide(6, 3), 2)
 
-def test_multiplication():
-    """Test that multiplication function"""
-    assert Calculator.multiply(3, 4) == 12
-
-
-def test_division():
-    """Test that division function"""
-    assert Calculator.divide(12, 3) == 4
+if __name__ == '__main__':
+    unittest.main()
