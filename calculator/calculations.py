@@ -1,7 +1,6 @@
 from typing import List
 from calculator.calculation import Calculation
 
-
 class Calculations:
     history: List[Calculation] = []
 
